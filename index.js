@@ -9,7 +9,7 @@ wss.on("connection", ws => {
   console.log("Client connected.");
 
   setInterval(() => {
-    ws.send('date', new Date().toISOString());
+    ws.send(new Date().toISOString());
   }, 100);
 
   ws.on("message", message => {
