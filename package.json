@@ -2,9 +2,9 @@
   "name": "websocket",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,6 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "nodemon": "^2.0.14",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4",
     "ws": "^8.2.3"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.2.0"
   }
 }
