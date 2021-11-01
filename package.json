@@ -5,6 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "nodemon src/index.ts",
+    "test": "nodemon src/ws-test.ts",
     "build": "tsc && ts-node dist/index.js"
   },
   "keywords": [],
