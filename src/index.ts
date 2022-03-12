@@ -1,4 +1,4 @@
 import { TestWebsocket } from './ws-controller';
 
-let ws = new TestWebsocket(8080);
+const ws = new TestWebsocket(8000);
 ws.start();

@@ -3,10 +3,10 @@ import WebSocket, { WebSocketServer } from "ws";
 export class TestWebsocket {
   private port: number;
   private wss: WebSocketServer;
-  private clients: Array<any>;
+  private clients: any[];
 
   constructor(port: number) {
-    console.log(`Started websocket on ws://localhost:${port}`);
+    // console.log(`Started websocket on ws://localhost:${port}`);
     this.port = port;
     this.wss = new WebSocketServer({ port: this.port });
     this.clients = new Array<any>();
@@ -19,16 +19,16 @@ export class TestWebsocket {
     this.wss.on("connection", (ws: WebSocket) => {
       this.clients.push(ws);
 
-      console.log("Client connected.");
+      // console.log("Client connected.");
 
-      if (interval != undefined && interval > 0) {
+      if (interval !== undefined && interval > 0) {
         this.testWebSocket(ws, interval);
       }
 
       ws.on("message", (message: string) => {
-        console.log(`Message received: ${message}`);
+        // console.log(`Message received: ${message}`);
         this.clients.forEach((client: WebSocket) => {
-          let msgString = JSON.stringify({ message: message });
+          const msgString = JSON.stringify({ message });
           client.send(msgString);
         });
       });
@@ -42,7 +42,7 @@ export class TestWebsocket {
    */
   private testWebSocket(ws: WebSocket, interval: number): void {
     setInterval(() => {
-      let date: string = new Date().toISOString();
+      const date: string = new Date().toISOString();
       ws.send(JSON.stringify({ currentTime: date }));
     }, interval);
   }
